@@ -1,0 +1,22 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let Starid = toShow._id 
+  - let Star_color = toShow.color 
+  - let Starlight = toShow.light 
+  - let Startemperature = toShow.temperature
+  div 
+    div.row 
+      div(class='StarAttr mr-3') Star ID is: 
+      div #{Starid} 
+    div.row 
+      div(class='StarAttr mr-3') Star color is: 
+      div #{Star_color} 
+    div.row 
+      div(class='StarAttr mr-3') Star light is: 
+      div #{Starlight} 
+    div.row 
+      div(class='StarAttr mr-3') Star temperature is: 
+      div #{Startemperature} 
