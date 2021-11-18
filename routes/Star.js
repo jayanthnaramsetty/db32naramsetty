@@ -16,5 +16,8 @@ router.get('/create', Star_controlers.Star_create_Page);
 
 /* GET create update page */ 
 router.get('/update', Star_controlers.Star_update_Page);
+
+/* GET create Star page */ 
+router.get('/delete', Star_controlers.Star_delete_Page); 
  
 module.exports = router;

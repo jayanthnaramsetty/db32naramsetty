@@ -2,11 +2,15 @@ extends layout
  
 block content 
   h1= title 
- 
-  - let Starid = toShow._id 
-  - let Star_color = toShow.color 
-  - let Starlight = toShow.light 
-  - let Startemperature = toShow.temperature
+ if (toShow == null) 
+    h2 No instance to delete 
+  else 
+    - let Starid = toShow._id 
+    - let Star_color  = toShow.color   
+    - let Starlight = toShow.light  
+    - let Startemperature = toShow.temperature   
+    - let actionid = "/resource/Star/" + Starid 
+    script let actionid = "#{actionid}"
   div 
     div.row 
       div(class='StarAttr mr-3') Star ID is: 
