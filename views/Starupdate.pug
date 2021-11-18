@@ -1,0 +1,43 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let Starid = toShow._id 
+  - let Star_color = toShow.color
+  - let Starlight = toShow.light
+  - let Startemperature = toShow.temperature 
+   
+  div.row(class='mb-2') 
+    div.mr-1 ID is 
+    div #{Starid} 
+  - let actionid = "/resource/Star/" + Starid 
+  form(id='StarForm', action= actionid, method="PUT") 
+    div.form-group 
+        label.StarAttr(for='Star_color') Star color
+        input#Star_type(type='text', name='Star_color', value= Star_color ) 
+    div.form-group 
+        label.StarAttr(for='light') Star light 
+        input#size(type='text', name='light', value= Starlight ) 
+    div.form-group 
+        label.StarAttr(for='temperature') Star cost 
+        input#cost(type='number', name='temperature', value= Startemperature ) 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['StarForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    }); 

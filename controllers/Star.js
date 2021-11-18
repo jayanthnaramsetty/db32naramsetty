@@ -112,3 +112,32 @@ exports.Star_view_one_Page = async function (req, res) {
         res.send(`{'error': '${err}'}`);
     }
 };
+
+
+// Handle building the view for creating a Star. 
+// No body, no in path parameter, no query. 
+// Does not need to be async 
+exports.Star_create_Page = function (req, res) {
+    console.log("create view")
+    try {
+        res.render('Starcreate', { title: 'Star Create' });
+    }
+    catch (err) {
+        res.status(500)
+        res.send(`{'error': '${err}'}`);
+    }
+};
+
+// Handle building the view for updating a Star. 
+// query provides the id 
+exports.Star_update_Page = async function (req, res) {
+    console.log("update view for item " + req.query.id)
+    try {
+        let result = await Star.findById(req.query.id)
+        res.render('Starupdate', { title: 'Star Update', toShow: result });
+    }
+    catch (err) {
+        res.status(500)
+        res.send(`{'error': '${err}'}`);
+    }
+};

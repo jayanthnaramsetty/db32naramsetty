@@ -4,6 +4,11 @@ var router = express.Router();
 // Require controller modules. 
 var api_controller = require('../controllers/api'); 
 var Star_controller = require('../controllers/Star'); 
+const Star_controlers= require('../controllers/Star');
+
+router.get('/', Star_controlers.Star_view_all_Page);
+
+router
  
 /// API ROUTE /// 
  
@@ -27,5 +32,6 @@ router.get('/Star/:id', Star_controller.Star_detail);
  
 // GET request for list of all Star items. 
 router.get('/Star', Star_controller.Star_list); 
+
  
 module.exports = router; 

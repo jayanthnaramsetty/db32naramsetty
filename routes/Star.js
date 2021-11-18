@@ -10,5 +10,11 @@ router.get('/', function(req, res, next) {
 
 /* GET detail star page */ 
 router.get('/detail', Star_controlers.Star_view_one_Page); 
+
+ //* GET create Star page */ 
+router.get('/create', Star_controlers.Star_create_Page); 
+
+/* GET create update page */ 
+router.get('/update', Star_controlers.Star_update_Page);
  
 module.exports = router;
