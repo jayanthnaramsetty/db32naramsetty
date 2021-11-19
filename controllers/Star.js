@@ -17,7 +17,7 @@ exports.Star_list = async function (req, res) {
 // Handle a show all view 
 exports.Star_view_all_Page = async function (req, res) {
     try {
-        theStars = await Star.find();
+        theStar = await Star.find();
         res.render('Star', { title: 'Star Search Results', results: theStar });
     }
     catch (err) {
