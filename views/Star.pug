@@ -7,7 +7,7 @@ block content
   div(class="row m-1")
    each item in Star
       - let destination = `dispatch(\"/Star/update?id=${item._id}\")`
-      div(class="row-sm-2", class="m-1") Item #{item.Star_color}(#{item.Starlight}) is #{item.Startemperature}
+      div(class="row-sm-2", class="m-1") Item #{item.color}(#{item.light}) is #{item.temperature}
       button.btn( class="btn-primary ml-1", onclick= destination) Update
       
  script.

@@ -59,12 +59,6 @@ exports.Star_create_post = async function (req, res) {
     }
 };
 
-// Handle Star delete form on DELETE. 
-exports.Star_delete = function (req, res) {
-    res.send('NOT IMPLEMENTED: Star delete DELETE ' + req.params.id);
-};
-
-
 //Handle Star update form on PUT. 
 exports.Star_update_put = async function (req, res) {
     console.log(`update on id ${req.params.id} with body 

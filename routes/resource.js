@@ -30,5 +30,4 @@ router.get('/Star/:id', Star_controller.Star_detail);
 // GET request for list of all Star items. 
 router.get('/Star', Star_controller.Star_list); 
 
- 
 module.exports = router; 
