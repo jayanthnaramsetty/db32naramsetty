@@ -8,8 +8,6 @@ const Star_controlers= require('../controllers/Star');
 
 router.get('/', Star_controlers.Star_view_all_Page);
 
-router
- 
 /// API ROUTE /// 
  
 // GET resources base. 
@@ -24,8 +22,7 @@ router.post('/Star', Star_controller.Star_create_post);
 router.delete('/Star/:id', Star_controller.Star_delete); 
  
 // PUT request to update Star. 
-router.put('/Star/:id', 
-Star_controller.Star_update_put); 
+router.put('/Star/:id', Star_controller.Star_update_put); 
  
 // GET request for one Star. 
 router.get('/Star/:id', Star_controller.Star_detail); 
