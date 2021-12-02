@@ -1,16 +1,33 @@
 extends layout
 
 block content
- h1= title
- - let Star = results;
- div(class="container-fluid")
-  div(class="row m-1")
-   each item in Star
-      - let destination = `dispatch(\"/Star/update?id=${item._id}\")`
-      div(class="row-sm-2", class="m-1") Item #{item.color}(#{item.light}) is #{item.temperature}
-      button.btn( class="btn-primary ml-1", onclick= destination) Update
-      
- script.
-  function dispatch(path){
-    window.location.href=path
-  }
+  -let create = `dispatch(\"star/create\")`
+  button.btn(class="btn-primary m1-1", onclick=create) Create
+  h1= title
+  p Welcome to the star pug
+  div(class="container-fluid")
+        div(class="row")
+            -
+                let star = results
+                
+  div(class="container-fluid") 
+    div(class="row  m-1") 
+      each item in star 
+       - let destination = `dispatch(\"/star/update?id=${item._id}\")` 
+       - let detail=`dispatch(\"/star/detail?id=${item._id}\")`
+       - let de=`dispatch(\"/star/delete?id=${item._id}\")` 
+        div(class="row-sm-2", class="m-1") star #{item.color}(#{item.light}) is #{item.temperature}
+            button.btn( class="btn-primary ml-1", onclick= destination) Update
+            button.btn( class="btn-secondary ml-2", onclick=detail ) Get Detail page
+            button.btn( class="btn-warning ml-2", onclick=de ) Delete
+            
+        script.                
+            function buy(itemNo)
+            {
+                  alert(`you purchased Item ${itemNo+1}`)
+            }
+        script. 
+          function dispatch(path)
+          { 
+              window.location.href=path 
+          }
