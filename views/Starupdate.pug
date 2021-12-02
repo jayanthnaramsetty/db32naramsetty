@@ -2,34 +2,35 @@ extends layout
  
 block content 
   h1= title 
- if (toShow == null) 
+ 
+  if (toShow == null) 
     h2 No instance to delete 
   else 
-    - let Starid = toShow._id 
-    - let Star_color  = toShow.color   
-    - let Starlight = toShow.light  
-    - let Startemperature = toShow.temperature   
-    - let actionid = "/resource/Star/" + Starid 
-    script let actionid = "#{actionid}"
-    
+    - let starid = toShow._id 
+    - let starcolor = toShow.color 
+    - let starlight = toShow.light
+    - let startemperature = toShow.temperature 
+    - let actionid = "/resource/star/" + starid 
+    script let actionid = "#{actionid}" 
+   
   div.row(class='mb-2') 
     div.mr-1 ID is 
-    div #{Starid} 
-  - let actionid = "/resource/Star/" + Starid 
-  form(id='StarForm', action= actionid, method="PUT") 
+    div #{starid} 
+  - let actionid = "/resource/star/" + starid 
+  form(id='starForm', action= actionid, method="PUT") 
     div.form-group 
-        label.StarAttr(for='Star_color') Star color
-        input#Star_type(type='text', name='Star_color', value= Star_color ) 
+        label.starAttr(for='starcolor') star color 
+        input#starcolor(type='text', name='starcolor', value= starcolor ) 
     div.form-group 
-        label.StarAttr(for='light') Star light 
-        input#size(type='text', name='light', value= Starlight ) 
+        label.starAttr(for='starlight') star light 
+        input#starlight(type='text', name='starlight', value= starlight ) 
     div.form-group 
-        label.StarAttr(for='temperature') Star cost 
-        input#cost(type='number', name='temperature', value= Startemperature ) 
+        label.starAttr(for='startemperature') star temperature
+        input#startemperature(type='number', name='startemperature', value= startemperature ) 
     input(type="submit") 
  
   script. 
-    document.forms['StarForm'].addEventListener('submit', (event) => { 
+    document.forms['starForm'].addEventListener('submit', (event) => { 
       event.preventDefault(); 
       // TODO do something here to show user that form is being submitted 
       fetch(event.target.action, { 
@@ -44,4 +45,4 @@ block content
         // TODO handle error 
         alert("Update failed " + error ) 
       }); 
-    }); 
+    });
