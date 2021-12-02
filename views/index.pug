@@ -1,19 +1,12 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}. This continues with #{title}.
-  button(type="button", class="btn btn-dark" onclick="update()") Press Me for the contents
-  p
-  div(id ="target") Display
-
-  script.
-    var client_count=0;
-    function update(){
-      client_count+=1;
-      
-      document.getElementById("target").innerHTML="Value Now "+client_count  ;
-    }
-
-  p
-  a(href="Star") Link to Star Page
+extends layout 
+ 
+block content 
+  if (!user) 
+    a(href="/login") Login 
+    br 
+    a(href="/register") Register 
+  if (user) 
+    p You are currently logged in as #{user.username} 
+    a(href="/star") Take me to stars 
+    br 
+    a(href="/logout") Logout 
